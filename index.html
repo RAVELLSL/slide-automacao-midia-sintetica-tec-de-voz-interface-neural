@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d0d;
+            color: #fff;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            background-color: #0d0d0d;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .slide h2 {
+            width: 100%;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #0ff;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .slide-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 80%;
+            gap: 10px; /* Aproxima o texto das imagens */
+        }
+
+        .slide-content img {
+            width: 48%;
+            height: auto;
+            border: 3px solid #0ff;
+            border-radius: 10px;
+            object-fit: contain; /* Ensures images do not deform */
+        }
+
+        .slide-content .text {
+            width: 48%;
+            text-align: left;
+            font-size: 1.6em; /* Aumenta o tamanho da fonte */
+        }
+
+        .slide:nth-child(even) .slide-content {
+            flex-direction: row-reverse;
+        }
+
+        /* Slide de Abertura */
+        .slide-opening {
+            background-image: url('https://www.iberdrola.com/documents/20125/3718402/historia-ia-746x419.jpg/177df891-3f96-d555-0a68-8c80e0d83b62?t=1701700838577');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #0ff;
+        }
+
+        .slide-opening .title-box {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .slide-opening h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5em;
+            margin: 10px 0;
+        }
+
+        @media (max-width: 768px) {
+            .slide-content {
+                flex-direction: column;
+            }
+            .slide-content img, .slide-content .text {
+                width: 90%;
+                max-width: 90%;
+            }
+            .slide-content img {
+                margin-bottom: 20px;
+            }
+            .slide-content .text {
+                text-align: center;
+                font-size: 1.4em; /* Ajusta o tamanho da fonte para telas menores */
+            }
+            .slide-opening h1 {
+                font-size: 2em; /* Ajusta o tamanho da fonte para telas menores */
+            }
+        }
+
+        /* Ajuste do tamanho das imagens para os últimos 2 slides */
+        .slide:nth-last-child(2) .slide-content img,
+        .slide:nth-last-child(3) .slide-content img {
+            width: 40%; /* Reduz o tamanho das imagens dos dois últimos slides */
+        }
+
+        /* Slide com imagem em tela cheia */
+        .slide-fullscreen {
+            background-image: url('https://lancenoticias.com.br/wp-content/uploads/2024/01/Design-sem-nome-76.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider-container">
+    <div class="slides">
+        <!-- Slide de Abertura -->
+        <div class="slide slide-opening">
+            <div class="title-box">
+                <h1>AUTOMAÇÃO EXTREMA</h1>
+                <h1>MÍDIA SINTÉTICA</h1>
+                <h1>TECNOLOGIA DE VOZ</h1>
+                <h1>INTERFACES NEURAIS</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>AUTOMAÇÃO EXTREMA</h2>
+            <div class="slide-content">
+                <img src="https://cactec.com.br/wp-content/uploads/2023/08/tecnologia-ambiental-1024x512.jpeg" alt="Automação Extrema">
+                <div class="text">
+                    <p>Conceito: Aplicação intensiva de automação em todas as áreas utilizando diversos recursos como IA, ML, RPA, e IaC.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>COMPONENTES</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>RPA: Automação de tarefas repetitivas.<br>IA e ML: Automação de decisões e previsão de resultados.<br>IaC: Gerenciamento automatizado de infraestrutura de TI.<br>CI/CD: Pipelines automatizados para desenvolvimento de software.<br></p>
+                </div>
+                <img src="https://blog.consistem.com.br/wp-content/uploads/2022/07/o-que-e-automacao-de-ti-e-como-ela-pode-revolucionar-seus-processos.jpg" alt="Componentes">
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>APLICAÇÕES</h2>
+            <div class="slide-content">
+                <img src="https://ax4b.com/wp-content/uploads/RPA-Saiba-como-aplicar-a-Automacao-de-Processos-Roboticos-em-seu-negocio.jpeg" alt="Aplicações">
+                <div class="text">
+                    <p>Indústria: Automação de produção e manutenção preditiva.<br>Finanças: Processamento automatizado de transações e análise de risco.<br>Serviços de TI: Gestão automatizada de infraestrutura.<br></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>MÍDIAS SINTÉTICAS</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>Conceito: Conteúdo criado ou alterado por IA, como deepfakes, áudio sintético, e vídeos gerados por IA.</p>
+                </div>
+                <img src="https://www.eucapacito.com.br/wp-content/uploads/2022/05/shutterstock_1814564765-scaled-1.jpg" alt="Mídias Sintéticas">
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>PRINCIPAIS TIPOS</h2>
+            <div class="slide-content">
+                <img src="https://www.protagonismodigital.sed.ms.gov.br/uploads/370b2ee6-417d-4a3f-a7c0-818dc55588ec.jpeg" alt="Principais Tipos">
+                <div class="text">
+                    <p>Deepfakes: Troca de rostos em vídeos ou imagens.<br>Áudio Sintético: Imitação de voz humana.<br>Textos Gerados por IA: Criação de textos que simulam escrita humana.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>APLICAÇÕES</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>Entretenimento e Marketing: Uso em cinema, publicidade, música, e arte.<br>Educação: Simulações realistas e tutoriais personalizados.<br>Comunicação e Mídias Sociais: Avatares virtuais e conteúdo automatizado.</p>
+                </div>
+                <img src="https://cdn.falauniversidades.com.br/wp-content/uploads/2020/08/19173631/midia.jpg" alt="Aplicações">
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>DESAFIOS ÉTICOS</h2>
+            <div class="slide-content">
+                <img src="https://cloudad.com.br/wp-content/uploads/2024/03/Produtor-de-midia-sintetica-e-a-funcao-mais-recente-abordando.jpg" alt="Desafios Éticos">
+                <div class="text">
+                    <p>Desinformação: Uso de deepfakes para espalhar fake news.<br>Privacidade: Uso não autorizado de identidade.<br>Autenticidade: Dificuldade em distinguir entre o real e o falso.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>TECNOLOGIA DE VOZ E INTERFACES NATURAIS</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>Conceito: Sistemas que permitem interação com dispositivos por meio de voz e gestos, utilizando reconhecimento de fala e NLP.</p>
+                </div>
+                <img src="https://somosnoticia.com.br/wp-content/uploads/2023/10/reconhecimento-de-voz.jpg" alt="Tecnologia de Voz e Interfaces Naturais">
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>COMPONENTES</h2>
+            <div class="slide-content">
+                <img src="https://meliva.ai/wp-content/uploads/2024/06/Ascensao-das-Vozes-Neurais-e-Interfaces-Conversacionais-1.png" alt="Componentes">
+                <div class="text">
+                    <p>Reconhecimento de Fala: ASR e modelos de linguagem.<br>NLP: Análise semântica e sintática, chatbots.<br>Síntese de Voz: Text-to-Speech (TTS) e vozes personalizadas.<br>Reconhecimento de Gestos e Expressões: Uso de sensores e IA para interações sem toque e análise emocional.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>APLICAÇÕES</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>Assistentes Virtuais: Siri, Alexa, Google Assistant.<br>Acessibilidade: Tecnologia assistiva para deficientes.<br>Atendimento ao Cliente: Chatbots e sistemas de IVR inteligentes.</p>
+                </div>
+                <img src="https://newvoice.ai/wp-content/uploads/2019/11/Intelig%C3%AAncia-artificial-para-todos-os-perfis.jpg" alt="Aplicações">
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>DESAFIOS ÉTICOS</h2>
+            <div class="slide-content">
+                <img src="https://i0.wp.com/eduka.ai/wp-content/uploads/2024/02/linguagem_natural_o_elo_entre_comunicacao_humana_e_IA.webp?fit=1024%2C1024&ssl=1" alt="Desafios Éticos">
+                <div class="text">
+                    <p>Privacidade e Segurança: Coleta de dados de voz e vulnerabilidades.<br>Precisão Cultural: Compreensão de diferentes dialetos e contextos.<br>Dependência: Impacto no comportamento e desigualdade de acesso.<br>Responsabilidade: Automação de decisões e ética na interação.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h2>TENDÊNCIAS FUTURAS</h2>
+            <div class="slide-content">
+                <div class="text">
+                    <p>Empatia e Inteligência Emocional: Interfaces mais sensíveis a emoções.<br>Realidade Aumentada e Virtual: Expansão de aplicações em AR/VR.<br>Inclusão e Acessibilidade: Desenvolvimento de tecnologias mais inclusivas.</p>
+                </div>
+                <img src="https://fvivas.com/wp-content/uploads/2024/01/processamento-de-linguagem-natural-pln-2-768x768.jpg.webp" alt="Tendências Futuras">
+            </div>
+        </div>
+
+        <!-- Slide com imagem em tela cheia -->
+        <div class="slide slide-fullscreen"></div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        if (index >= totalSlides) {
+            currentSlide = totalSlides - 1;
+        } else if (index < 0) {
+            currentSlide = 0;
+        } else {
+            currentSlide = index;
+        }
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight') {
+            nextSlide();
+        } else if (event.key === 'ArrowLeft') {
+            prevSlide();
+        }
+    });
+</script>
+
+</body>
+</html>
