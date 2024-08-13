@@ -6,135 +6,138 @@
     <title>Slide</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0d0d0d;
-            color: #fff;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            margin: 0;
-            padding: 0;
-        }
+    font-family: 'Roboto', sans-serif;
+    background-color: #0d0d0d;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+}
 
-        .slider-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-            height: 100%;
-        }
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
 
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            background-color: #0d0d0d;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 
-        .slide h2 {
-            width: 100%;
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            color: #0ff;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
+.slide h2 {
+    width: 100%;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
 
-        .slide-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 80%;
-            gap: 10px; /* Aproxima o texto das imagens */
-        }
+.slide-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 80%;
+    gap: 10px; /* Aproxima o texto das imagens */
+}
 
-        .slide-content img {
-            width: 48%;
-            height: auto;
-            border: 3px solid #0ff;
-            border-radius: 10px;
-            object-fit: contain; /* Ensures images do not deform */
-        }
+.slide-content img {
+    width: 48%;
+    height: auto;
+    max-height: 70vh; /* Define a altura máxima para evitar sobreposição */
+    border: 3px solid #0ff;
+    border-radius: 10px;
+    object-fit: contain; /* Ensures images do not deform */
+}
 
-        .slide-content .text {
-            width: 48%;
-            text-align: left;
-            font-size: 1.6em; /* Aumenta o tamanho da fonte */
-        }
+.slide-content .text {
+    width: 48%;
+    text-align: left;
+    font-size: 1.6em; /* Aumenta o tamanho da fonte */
+}
 
-        .slide:nth-child(even) .slide-content {
-            flex-direction: row-reverse;
-        }
+.slide:nth-child(even) .slide-content {
+    flex-direction: row-reverse;
+}
 
-        /* Slide de Abertura */
-        .slide-opening {
-            background-image: url('https://www.iberdrola.com/documents/20125/3718402/historia-ia-746x419.jpg/177df891-3f96-d555-0a68-8c80e0d83b62?t=1701700838577');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #0ff;
-        }
+/* Slide de Abertura */
+.slide-opening {
+    background-image: url('https://www.iberdrola.com/documents/20125/3718402/historia-ia-746x419.jpg/177df891-3f96-d555-0a68-8c80e0d83b62?t=1701700838577');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #0ff;
+}
 
-        .slide-opening .title-box {
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 10px;
-        }
+.slide-opening .title-box {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
 
-        .slide-opening h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5em;
-            margin: 10px 0;
-        }
+.slide-opening h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    margin: 10px 0;
+}
 
-        @media (max-width: 768px) {
-            .slide-content {
-                flex-direction: column;
-            }
-            .slide-content img, .slide-content .text {
-                width: 90%;
-                max-width: 90%;
-            }
-            .slide-content img {
-                margin-bottom: 20px;
-            }
-            .slide-content .text {
-                text-align: center;
-                font-size: 1.4em; /* Ajusta o tamanho da fonte para telas menores */
-            }
-            .slide-opening h1 {
-                font-size: 2em; /* Ajusta o tamanho da fonte para telas menores */
-            }
-        }
+@media (max-width: 768px) {
+    .slide-content {
+        flex-direction: column;
+    }
+    .slide-content img, .slide-content .text {
+        width: 90%;
+        max-width: 90%;
+    }
+    .slide-content img {
+        margin-bottom: 20px;
+    }
+    .slide-content .text {
+        text-align: center;
+        font-size: 1.4em; /* Ajusta o tamanho da fonte para telas menores */
+    }
+    .slide-opening h1 {
+        font-size: 2em; /* Ajusta o tamanho da fonte para telas menores */
+    }
+}
 
-        /* Ajuste do tamanho das imagens para os últimos 2 slides */
-        .slide:nth-last-child(2) .slide-content img,
-        .slide:nth-last-child(3) .slide-content img {
-            width: 40%; /* Reduz o tamanho das imagens dos dois últimos slides */
-        }
+/* Ajuste do tamanho das imagens para os últimos 2 slides */
+.slide:nth-last-child(2) .slide-content img,
+.slide:nth-last-child(3) .slide-content img {
+    width: 48%; /* Ajuste para manter a consistência com os outros slides */
+    max-height: 60vh; /* Define uma altura máxima específica para evitar sobreposição */
+}
 
-        /* Slide com imagem em tela cheia */
-        .slide-fullscreen {
-            background-image: url('https://lancenoticias.com.br/wp-content/uploads/2024/01/Design-sem-nome-76.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+/* Slide com imagem em tela cheia */
+.slide-fullscreen {
+    background-image: url('https://lancenoticias.com.br/wp-content/uploads/2024/01/Design-sem-nome-76.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
     </style>
 </head>
 <body>
